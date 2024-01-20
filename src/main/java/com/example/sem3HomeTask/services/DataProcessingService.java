@@ -13,6 +13,9 @@ import java.util.stream.Collectors;
 public class DataProcessingService {
 
     @Autowired
+    private NotificationService notificationService;
+
+    @Autowired
     private UserRepository userRepository;
 
     public UserRepository getUserRepository() {
@@ -40,5 +43,6 @@ public class DataProcessingService {
 
     public void addUserToList(User user) {
         userRepository.getUsers().add(user);
+        notificationService.notifyUsers(userRepository.getUsers(), user);
     }
 }

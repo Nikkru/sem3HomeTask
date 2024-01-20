@@ -17,8 +17,8 @@ public class UserController {
 
     @Autowired
     UserService userService;
-    @Autowired
-    NotificationService notificationService;
+//    @Autowired
+//    NotificationService notificationService;
     @Autowired
     DataProcessingService service;
 
@@ -28,7 +28,7 @@ public class UserController {
             @PathVariable("age") int age,
             @PathVariable("email") String email) {
         User user = userService.createUser(name, age, email);
-        notificationService.notifyUser(user);
+//        notificationService.notifyUser(user);
         service.addUserToList(user);
     }
 }

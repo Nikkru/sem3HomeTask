@@ -4,6 +4,7 @@ import com.example.sem3HomeTask.domain.User;
 import com.example.sem3HomeTask.services.DataProcessingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,8 +32,8 @@ public class TaskController {
         return service.sortUserByAge(service.getUserRepository().getUsers());
     }
 
-    @GetMapping("/filter")
-    public List<User> filterUsers(int age) {
+    @GetMapping("/filter/{age}")
+    public List<User> filterUsers(@PathVariable("age") int age) {
         return service.filterUserByAge(service.getUserRepository().getUsers(), age);
     }
 
