@@ -45,4 +45,8 @@ public class DataProcessingService {
         userRepository.getUsers().add(user);
         notificationService.notifyUsers(userRepository.getUsers(), user);
     }
+
+    public List<User> getListUsers() {
+        return getUserRepository().getUsers();
+    }
 }
